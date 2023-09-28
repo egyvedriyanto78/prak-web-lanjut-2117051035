@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ID Card</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
+    <link rel="stylesheet" href="<?= base_url("assets/css/style.css") ?>">
+    <!-- <style>
         .id-card {
             border: 2px solid #333;
             max-width: 300px;
@@ -33,15 +34,14 @@
             padding: 10px;
             margin-bottom: 10px;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="id-card">
             <div class="text-center">
-                <img src="https://th.bing.com/th/id/OIP.OesLvyzDO6AvU_hYUAT4IAHaHa?pid=ImgDet&rs=1" alt="Profil"
-                    class="profil-img">
+                <img src="<?= base_url("assets/img/profile.jpg") ?>" alt="Profil" class="profil-img">
             </div>
             <div class="text-center mt-3">
                 <div class="info-box">
