@@ -1,0 +1,26 @@
+.id-card {
+    border: 2px solid #333;
+    max-width: 300px;
+    /* Sesuaikan dengan lebar yang diinginkan */
+    margin: 0 auto;
+    /* Untuk membuat ID Card berada di tengah */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.profil-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    margin: 0 auto;
+    /* Untuk membuat foto profil berada di tengah */
+    display: block;
+}
+
+.info-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
