@@ -11,18 +11,56 @@
 <body>
     <div class="container mt-5">
         <h2>Create User</h2>
-        <form action="<?=base_url('/user/store')?>" method="POST">
+        <?php if (isset($validation) || session()->has('npm_error')): ?>
+            <div class="alert alert-danger">
+                <?php
+                if (isset($validation)) {
+                    echo $validation->listErrors();
+                }
+                if (session()->has('npm_error')) {
+                    echo session('npm_error');
+                }
+                ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="<?= base_url('/user/store') ?>" method="POST">
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control <?php if (isset($validation) && $validation->hasError('nama'))
+                    echo 'is-invalid'; ?>" id="nama" name="nama" required>
+                <?php if (isset($validation) && $validation->hasError('nama')): ?>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nama') ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="npm">NPM</label>
-                <input type="text" class="form-control" id="npm" name="npm" required>
+                <input type="text" class="form-control <?php if (isset($validation) && $validation->hasError('npm'))
+                    echo 'is-invalid'; ?>" id="npm" name="npm" required>
+                <?php if (isset($validation) && $validation->hasError('npm')): ?>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('npm') ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="kelas">Kelas</label>
-                <input type="text" class="form-control" id="kelas" name="kelas" required>
+                <select class="form-control <?php if (isset($validation) && $validation->hasError('kelas'))
+                    echo 'is-invalid'; ?>" name="kelas" id="kelas">
+                    <option value="" disabled selected>Pilih kelas</option>
+                    <?php foreach ($kelas as $item): ?>
+                        <option value="<?= $item['id'] ?>">
+                            <?= $item['nama_kelas'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <?php if (isset($validation) && $validation->hasError('kelas')): ?>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('kelas') ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
