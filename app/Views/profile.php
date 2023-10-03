@@ -17,22 +17,23 @@
 <div class="container mt-5">
     <div class="id-card">
         <div class="text-center">
-            <img src="<?= base_url("assets/img/profile.jpg") ?>" alt="Profil" class="profil-img">
+            <img src="<?= $user['foto'] ?? base_url("assets/img/profile.jpg") ?>"
+                alt="Profil" class="profil-img">
         </div>
         <div class="text-center mt-3">
             <div class="info-box">
                 <h5>
-                    <?= $nama ?>
+                    <?= $user['nama'] ?>
                 </h5>
             </div>
             <div class="info-box">
                 <h5>
-                    <?= $kelas ?>
+                    <?= $user['npm'] ?>
                 </h5>
             </div>
             <div class="info-box">
                 <h5>
-                    <?= $npm ?>
+                    <?= $user['nama_kelas'] ?>
                 </h5>
             </div>
         </div>
