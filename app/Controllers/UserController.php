@@ -65,6 +65,16 @@ class UserController extends BaseController
             return redirect()->to('/user/create')->withInput()->with('validation', $this->validator);
         }
 
+        $path = 'assets/uploads/img/';
+
+        $foto = $this->request->getFile('foto');
+
+        $name = $foto->getRandomName();
+
+        if ($foto->move($path, $name)) {
+            $foto = base_url($path . $name);
+        }
+
         // Dibawah ini untuk route ke profile
         // $data = [
         //     'nama' => $this->request->getVar('nama'),
@@ -77,9 +87,22 @@ class UserController extends BaseController
         $this->userModel->saveUser([
             'nama' => $this->request->getVar('nama'),
             'id_kelas' => $this->request->getVar('kelas'),
-            'npm' => $this->request->getVar('npm')
+            'npm' => $this->request->getVar('npm'),
+            'foto' => $foto
         ]);
         return redirect()->to('/user');
+    }
+
+    public function show($id)
+    {
+        $user = $this->userModel->getUser($id);
+
+        $data = [
+            'title' => 'Profile',
+            'user' => $user
+        ];
+
+        return view('profile', $data);
     }
 
 }

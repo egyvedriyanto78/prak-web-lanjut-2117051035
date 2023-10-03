@@ -29,7 +29,11 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?= base_url('/user/store') ?>" method="POST">
+    <form action="<?= base_url('/user/store') ?>" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="foto">Foto</label>
+            <input type="file" class="form-control" id="foto" name="foto">
+        </div>
         <div class="form-group">
             <label for="nama">Nama</label>
             <input type="text" class="form-control <?php if (isset($validation) && $validation->hasError('nama'))
