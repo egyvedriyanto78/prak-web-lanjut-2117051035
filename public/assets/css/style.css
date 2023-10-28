@@ -1,9 +1,7 @@
 .id-card {
     border: 2px solid #333;
     max-width: 300px;
-    /* Sesuaikan dengan lebar yang diinginkan */
     margin: 0 auto;
-    /* Untuk membuat ID Card berada di tengah */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -15,7 +13,6 @@
     border-radius: 50%;
     border: 2px solid #333;
     margin: 0 auto;
-    /* Untuk membuat foto profil berada di tengah */
     display: block;
 }
 
@@ -28,3 +25,47 @@
 .btn {
     margin-bottom: 1rem;
 }
+
+.container {
+    padding-top: 6rem;
+}
+
+.container-fluid {
+    width: 75%;
+    justify-content: space-between;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.bg-image {
+    background-image: url('../img/homepagebg.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.homepage h1 {
+    font-size: 42px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1);
+    color: white;
+}
+
